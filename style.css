@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f3f3f3;
+  color: #333;
+}
+
+.navbar {
+  height: 86px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  gap: 34px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #777;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.nav-links a.active {
+  color: #222;
+  font-weight: 700;
+}
+
+.theme-btn {
+  border: none;
+  background: transparent;
+  font-size: 34px;
+  cursor: pointer;
+  color: #777;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 90px auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 90px;
+  align-items: start;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+  border-radius: 4px;
+}
+
+.left-card {
+  padding: 36px 34px 42px;
+}
+
+.cat-image {
+  width: 100%;
+  max-width: 250px;
+  display: block;
+  margin: 0 auto 28px;
+}
+
+.left-text {
+  font-size: 34px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.right-panel {
+  padding: 34px 40px 40px;
+}
+
+.right-panel h2 {
+  margin: 0 0 22px;
+  font-size: 34px;
+}
+
+.item-card {
+  min-height: 150px;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  padding: 0 34px;
+  font-size: 30px;
+}
+
+.icon {
+  width: 56px;
+  text-align: center;
+  margin-right: 18px;
+}
+
+.label {
+  font-size: 31px;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
+.desc {
+  font-size: 30px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links a,
+  .brand {
+    font-size: 20px;
+  }
+
+  .theme-btn {
+    font-size: 24px;
+  }
+
+  .left-text,
+  .right-panel h2,
+  .item-card,
+  .label,
+  .desc {
+    font-size: 22px;
+  }
+}
