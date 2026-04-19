@@ -80,7 +80,7 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: sans-serif;
-  background: #f5f5f5;
+  background: #ffffff;
   color: #222;
 }
 
@@ -94,7 +94,7 @@ button {
 }
 
 .page-back-button {
-  position: fixed;
+  position: absolute;
   top: 16px;
   left: 18px;
   z-index: 20;
@@ -103,12 +103,17 @@ button {
   background: transparent;
   padding: 0;
   color: rgba(95, 103, 114, 0.92);
-  font-size: 2rem;
   line-height: 1;
   cursor: pointer;
   transition:
     opacity 0.18s ease,
     transform 0.18s ease;
+}
+
+.page-back-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 
 .page-back-button:hover {
@@ -373,6 +378,7 @@ button {
 .site-footer {
   margin-top: 80px;
   padding: 40px 20px 140px;
+  background: rgba(34, 34, 34, 0.04);
 }
 
 .footer-inner {
@@ -393,8 +399,78 @@ button {
   transition: opacity 0.18s ease;
 }
 
+.footer-link-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}
+
+.footer-home-icon {
+  width: 22px;
+  height: 22px;
+}
+
 .footer-link:hover {
   opacity: 0.6;
+}
+
+.footer-socials {
+  display: inline-flex;
+  list-style: none;
+  width: 100%;
+  margin: 28px 0 0;
+  padding: 0;
+  justify-content: center;
+  gap: 14px;
+}
+
+.footer-social {
+  position: relative;
+}
+
+.footer-social-link {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(34, 34, 34, 0.82);
+  text-decoration: none;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.footer-social-tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  white-space: nowrap;
+}
+
+.footer-social-tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 
@@ -623,7 +699,7 @@ button {
 
 .language-dial {
   --dial-size: 52px;
-  --dial-option-size: 42px;
+  --dial-option-size: 50px;
   --dial-bg: var(--glass-surface);
   --dial-bg-hover: var(--glass-surface-strong);
   --dial-option-bg: var(--glass-surface-subtle);
@@ -669,11 +745,11 @@ button {
   transform: rotate(45deg) scale(0.96);
 }
 
-.language-dial-plus {
-  display: inline-block;
-  font-size: 2.1rem;
-  line-height: 1;
-  transform: translateY(-2px);
+.language-dial-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
 }
 
 .language-dial-options {
@@ -684,10 +760,13 @@ button {
 
 .language-option {
   position: absolute;
-  top: 5px;
-  left: 5px;
+  top: calc((var(--dial-size) - var(--dial-option-size)) / 2);
+  left: calc((var(--dial-size) - var(--dial-option-size)) / 2);
   width: var(--dial-option-size);
   height: var(--dial-option-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--dial-option-border);
   border-radius: 50%;
   background: var(--dial-option-bg);
@@ -704,6 +783,10 @@ button {
     transform 0.22s var(--menu-motion-ease),
     opacity 0.18s linear,
     background-color 0.18s ease;
+  font-size: 0.78rem;
+  line-height: 1.1;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .language-option:hover {
@@ -711,11 +794,12 @@ button {
 }
 
 .language-option[aria-pressed="true"] {
-  background: rgba(255, 255, 255, 0.22);
-  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(58, 121, 255, 0.88);
+  border-color: rgba(58, 121, 255, 0.96);
+  color: rgba(255, 255, 255, 0.98);
   box-shadow:
-    0 12px 28px rgba(15, 23, 42, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    0 12px 28px rgba(58, 121, 255, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .language-dial.open .language-dial-options {
@@ -749,7 +833,11 @@ button {
   .page-back-button {
     top: 14px;
     left: 14px;
-    font-size: 1.8rem;
+  }
+
+  .page-back-icon {
+    width: 22px;
+    height: 22px;
   }
 
   .main-content {
@@ -871,7 +959,7 @@ button {
   }
 
   .pill-menu.open {
-    width: calc(100vw - 24px);
+    width: min(180px, calc(100vw - 140px));
     height: 244px;
   }
 
@@ -881,6 +969,26 @@ button {
 
   .language-dial {
     right: 24px;
-    bottom: 24px;
+    bottom: 20px;
+  }
+
+  .language-option {
+    top: 1px;
+    left: 1px;
+  }
+
+  .language-dial.open .language-option:nth-child(1) {
+    transform: translate(0, -64px) scale(1);
+    transition-delay: 0.02s;
+  }
+
+  .language-dial.open .language-option:nth-child(2) {
+    transform: translate(0, -126px) scale(1);
+    transition-delay: 0.05s;
+  }
+
+  .language-dial.open .language-option:nth-child(3) {
+    transform: translate(0, -188px) scale(1);
+    transition-delay: 0.08s;
   }
 }

@@ -12,7 +12,7 @@
     "contact": "Contact me"
   },
   "menu": {
-    "label": "Menu 🐱",
+    "label": "Menu",
     "siteMenu": "站點選單",
     "mainNavigation": "主導航"
   },
@@ -24,17 +24,18 @@
     "openOptions": "打開語言選項",
     "options": {
       "en": "EN",
-      "zh": "中",
-      "jp": "JP"
+      "zh": "中文",
+      "jp": "日本語"
     }
   },
   "home": {
     "intro": {
       "label": "自我介紹",
-      "line1": "我是 cat3lee...",
-      "line2": "我做網頁應用...",
-      "line3": "我過著簡單的生活..."
+      "line1": "你好，我是 Ivan（Yanhong）Lee。目前在學習計算機相關的東西，對圖形學、3D 生成（像 3DGS、空間表示）這些方向有興趣，也在探索 AI 和 3D 結合的可能性。",
+      "line2": "另外，我對航空電子系統和飛行控制系統很感興趣。我從小接觸模擬飛行，偶爾喜歡飛一飛模擬飛行。不寫程式的時候，我喜歡彈鋼琴，我最喜歡的作曲家是Rachmaninoff。",
+      "line3": "雖然暱稱叫 cat3lee，但我其實喜歡狗狗，最喜歡的是馬爾熊（馬爾濟斯 × 比熊）。這個網站用來記錄我在做的東西、一些想法，以及日常的片段。"
     },
+    
     "sections": {
       "lab": {
         "title": "Lab",

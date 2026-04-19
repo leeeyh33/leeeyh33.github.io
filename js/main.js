@@ -8,6 +8,7 @@ const languageDial = document.querySelector(".language-dial");
 const languageDialTrigger = document.querySelector(".language-dial-trigger");
 const languageOptions = document.querySelectorAll(".language-option");
 const pillMenuLinks = document.querySelectorAll(".pill-menu-item");
+const footerHomeLinks = document.querySelectorAll('.footer-link-icon-only[href="#home"]');
 const pageBackButton = document.querySelector(".page-back-button");
 let closeTimerId = null;
 let closeCleanupTimerId = null;
@@ -196,6 +197,19 @@ if (languageOptions.length > 0) {
       if (languageDialTrigger) {
         languageDialTrigger.setAttribute("aria-expanded", "false");
       }
+    });
+  });
+}
+
+if (footerHomeLinks.length > 0) {
+  footerHomeLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   });
 }

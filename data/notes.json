@@ -1,72 +1,16 @@
 [
   {
-    "slug": "shiga-trip",
+    "slug": "daikanyama-walk",
     "title": {
-      "zh": "滋賀春假旅行",
-      "en": "Spring Trip to Shiga",
-      "ja": "春休みの滋賀旅行"
+      "zh": "代官山漫步",
+      "en": "Daikanyama Walk",
+      "ja": "代官山の散歩"
     },
-    "date": "2026-04-09",
+    "date": "2025-05-13",
     "author": "cat3lee",
-    "avatar": "🐱",
+    "avatar": "🐶",
     "originalLocale": "zh",
     "category": "diary",
-    "cover": "./cat.png"
-  },
-  {
-    "slug": "graduation",
-    "title": {
-      "zh": "女兒幼兒園畢業",
-      "en": "My Daughter Graduated from Kindergarten",
-      "ja": "娘、保育園卒業"
-    },
-    "date": "2026-03-23",
-    "author": "cat3lee",
-    "avatar": "🐱",
-    "originalLocale": "zh",
-    "category": "diary",
-    "cover": "./cat.png"
-  },
-  {
-    "slug": "memory",
-    "title": {
-      "zh": "人類的記憶真美妙",
-      "en": "Human Memory Is Wonderful",
-      "ja": "人間の記憶って素敵"
-    },
-    "date": "2026-02-18",
-    "author": "cat3lee",
-    "avatar": "🐱",
-    "originalLocale": "zh",
-    "category": "notes",
-    "cover": "./cat.png"
-  },
-  {
-    "slug": "us-trip",
-    "title": {
-      "zh": "去了一趟 USJ",
-      "en": "A Trip to USJ",
-      "ja": "USJ行ってきた"
-    },
-    "date": "2026-02-01",
-    "author": "cat3lee",
-    "avatar": "🐱",
-    "originalLocale": "zh",
-    "category": "diary",
-    "cover": "./cat.png"
-  },
-  {
-    "slug": "tokyo-trip",
-    "title": {
-      "zh": "東京旅行",
-      "en": "Tokyo Trip",
-      "ja": "東京旅行"
-    },
-    "date": "2026-04-01",
-    "author": "cat3lee",
-    "avatar": "🐱",
-    "originalLocale": "zh",
-    "category": "diary",
-    "cover": "./cat.png"
+    "cover": "/assets/images/daikanyama-walk/IMG_3070.jpg"
   }
 ]

@@ -1,1 +1,94 @@
-/* Index page styles live in base.css for now. */
+.intro-section {
+  max-width: 620px;
+  margin: 0 auto;
+  min-height: calc(100vh - 220px);
+  padding: 96px 0 132px;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.logo {
+  font-size: 2.4rem;
+  margin-bottom: 34px;
+}
+
+.intro-text {
+  max-width: 540px;
+}
+
+.intro-text p {
+  margin: 0 0 34px;
+  font-size: 1.04rem;
+  line-height: 1.9;
+  color: rgba(34, 34, 34, 0.88);
+}
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.main-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.home-sections-band {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: 0;
+  padding: 88px 0 104px;
+  background: rgb(244, 248, 250);
+}
+
+.home-sections-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.home-sections-band .content-section {
+  margin-top: 0;
+}
+
+.home-sections-band .content-section + .content-section {
+  margin-top: 88px;
+}
+
+.site-footer {
+  margin-top: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 480px) {
+  .intro-section {
+    max-width: 100%;
+    min-height: calc(100vh - 190px);
+    padding: 72px 0 96px;
+  }
+
+  .logo {
+    font-size: 2.1rem;
+    margin-bottom: 28px;
+  }
+
+  .intro-text {
+    max-width: 100%;
+    padding: 0 14px;
+  }
+
+  .intro-text p {
+    margin-bottom: 24px;
+    font-size: 0.98rem;
+    line-height: 1.82;
+  }
+
+  .home-sections-band {
+    margin-top: 72px;
+    padding: 64px 0 76px;
+  }
+
+  .home-sections-band .content-section + .content-section {
+    margin-top: 64px;
+  }
+}

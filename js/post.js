@@ -29,6 +29,15 @@ const getLocalizedTitle = (postMeta) => {
   return postMeta.title || "";
 };
 
+const preserveMarkdownBlankLines = (markdown) => {
+  return markdown.replace(/\n{3,}/g, (match) => {
+    const extraBreaks = match.length - 2;
+    const spacers = Array.from({ length: extraBreaks }, () => "<div class=\"post-spacer\" aria-hidden=\"true\"></div>").join("\n");
+
+    return `\n\n${spacers}\n\n`;
+  });
+};
+
 const fetchMarkdownForLocale = async (slug, locale, originalLocale) => {
   const candidates = [];
 
@@ -103,7 +112,7 @@ const loadPost = async () => {
       getLocale(),
       postMeta.originalLocale || "ja",
     );
-    const html = window.marked.parse(markdown);
+    const html = window.marked.parse(preserveMarkdownBlankLines(markdown));
 
     if (postContent) {
       postContent.innerHTML = `
