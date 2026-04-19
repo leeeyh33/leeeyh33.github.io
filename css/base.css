@@ -831,8 +831,8 @@ button {
 
 @media (max-width: 480px) {
   .page-back-button {
-    top: 14px;
-    left: 14px;
+    top: 24px;
+    left: 12px;
   }
 
   .page-back-icon {
@@ -863,6 +863,7 @@ button {
 
   .notes-brand {
     gap: 12px;
+    margin-left: 18px;
   }
 
   .notes-brand-mark {

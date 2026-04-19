@@ -1,5 +1,5 @@
 const I18N_STORAGE_KEY = "site-locale";
-const I18N_DEFAULT_LOCALE = "zh";
+const I18N_DEFAULT_LOCALE = "en";
 const I18N_SUPPORTED_LOCALES = new Set(["zh", "en", "ja"]);
 let i18nMessages = {};
 let currentLocale = I18N_DEFAULT_LOCALE;
