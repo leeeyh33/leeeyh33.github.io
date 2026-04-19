@@ -1,0 +1,75 @@
+{
+  "common": {
+    "siteTitle": "cat3lee",
+    "back": "戻る",
+    "loading": "読み込み中...",
+    "contactMe": "Contact me"
+  },
+  "nav": {
+    "home": "Home",
+    "lab": "Lab",
+    "notes": "Notes",
+    "contact": "Contact me"
+  },
+  "menu": {
+    "label": "Menu 🐱",
+    "siteMenu": "サイトメニュー",
+    "mainNavigation": "メインナビゲーション"
+  },
+  "footer": {
+    "navigation": "フッターナビゲーション"
+  },
+  "language": {
+    "switcher": "言語切り替え",
+    "openOptions": "言語オプションを開く",
+    "options": {
+      "en": "EN",
+      "zh": "中文",
+      "jp": "JP"
+    }
+  },
+  "home": {
+    "intro": {
+      "label": "自己紹介",
+      "line1": "私は cat3lee...",
+      "line2": "Web アプリを作っています...",
+      "line3": "シンプルな暮らしをしています..."
+    },
+    "sections": {
+      "lab": {
+        "title": "Lab",
+        "placeholder": "プロジェクトの実験や制作物はここに置きます。"
+      },
+      "notes": {
+        "title": "Notes",
+        "placeholder": "文章、考えごと、小さな更新はここに置きます。"
+      }
+    }
+  },
+  "labPage": {
+    "title": "cat3lee Lab",
+    "eyebrow": "cat3lee",
+    "heading": "Lab",
+    "subtitle": "実験、プロトタイプ、制作中のものを置くための場所です。"
+  },
+  "notesPage": {
+    "title": "cat3lee Notes",
+    "categories": "Notes のカテゴリ",
+    "heading": "Notes",
+    "tabs": {
+      "all": "すべて",
+      "diary": "日記"
+    },
+    "publishedOn": "{year}/{month}/{day} に公開",
+    "coverAlt": "{title} のカバー"
+  },
+  "postPage": {
+    "title": "cat3lee Post",
+    "titleWithPost": "cat3lee {title}",
+    "contentLabel": "投稿内容",
+    "missingSlug": "投稿 slug がありません。",
+    "loadError": "この投稿を読み込めませんでした。",
+    "translatedNotice": "このページは翻訳です",
+    "viewOriginal": "原文を見る"
+  }
+}

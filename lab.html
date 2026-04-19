@@ -3,37 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="notesPage.title">cat3lee 筆記</title>
+  <title data-i18n="labPage.title">cat3lee 實驗室</title>
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="css/lab.css">
 </head>
 <body>
-  <a class="page-back-button" href="index.html" data-i18n-aria-label="common.back" aria-label="返回">
-    ↶
-  </a>
-
-  <main class="notes-page">
-    <header class="notes-header">
-      <div class="notes-brand">
-        <div class="notes-brand-mark" aria-hidden="true">🐱</div>
-        <span class="notes-brand-name">cat3lee</span>
-      </div>
-    </header>
-
-    <section class="notes-tabs" data-i18n-aria-label="notesPage.categories" aria-label="筆記分類">
-      <button class="notes-tab active" type="button" data-category="all" data-i18n="notesPage.tabs.all">全部</button>
-      <button class="notes-tab" type="button" data-category="diary" data-i18n="notesPage.tabs.diary">日記</button>
-    </section>
-
-    <section id="notes-grid" class="notes-grid" aria-labelledby="notes-page-title">
-      <h1 class="sr-only" id="notes-page-title" data-i18n="notesPage.heading">筆記</h1>
+  <main class="page-main">
+    <section class="page-hero" aria-labelledby="lab-page-title">
+      <p class="page-eyebrow" data-i18n="labPage.eyebrow">cat3lee</p>
+      <h1 class="page-title" id="lab-page-title" data-i18n="labPage.heading">實驗室</h1>
+      <p class="page-subtitle" data-i18n="labPage.subtitle">專門放實驗、原型和各種建造中的作品。</p>
     </section>
   </main>
 
   <footer class="site-footer" id="contact" data-i18n-aria-label="footer.navigation" aria-label="頁尾導航">
     <div class="footer-inner">
       <a href="index.html" class="footer-link" data-i18n="nav.home">首頁</a>
-      <a href="notes.html" class="footer-link" data-i18n="nav.notes">筆記</a>
+      <a href="lab.html" class="footer-link" data-i18n="nav.lab">實驗室</a>
       <a href="#contact" class="footer-link" data-i18n="nav.contact">聯絡我</a>
     </div>
   </footer>
@@ -95,6 +81,5 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/notes.js"></script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+{
+  "common": {
+    "siteTitle": "cat3lee",
+    "back": "返回",
+    "loading": "載入中...",
+    "contactMe": "聯絡我"
+  },
+  "nav": {
+    "home": "Home",
+    "lab": "Lab",
+    "notes": "Notes",
+    "contact": "Contact me"
+  },
+  "menu": {
+    "label": "Menu 🐱",
+    "siteMenu": "站點選單",
+    "mainNavigation": "主導航"
+  },
+  "footer": {
+    "navigation": "頁尾導航"
+  },
+  "language": {
+    "switcher": "語言切換",
+    "openOptions": "打開語言選項",
+    "options": {
+      "en": "EN",
+      "zh": "中",
+      "jp": "JP"
+    }
+  },
+  "home": {
+    "intro": {
+      "label": "自我介紹",
+      "line1": "我是 cat3lee...",
+      "line2": "我做網頁應用...",
+      "line3": "我過著簡單的生活..."
+    },
+    "sections": {
+      "lab": {
+        "title": "Lab",
+        "placeholder": "專案實驗和作品會放在這裡。"
+      },
+      "notes": {
+        "title": "Notes",
+        "placeholder": "文字、想法和小更新會放在這裡。"
+      }
+    }
+  },
+  "labPage": {
+    "title": "cat3lee Lab",
+    "eyebrow": "cat3lee",
+    "heading": "Lab",
+    "subtitle": "專門放實驗、原型和各種建造中的作品。"
+  },
+  "notesPage": {
+    "title": "cat3lee Notes",
+    "categories": "筆記分類",
+    "heading": "Notes",
+    "tabs": {
+      "all": "全部",
+      "diary": "日記"
+    },
+    "publishedOn": "{year}/{month}/{day} 公開",
+    "coverAlt": "{title} 封面"
+  },
+  "postPage": {
+    "title": "cat3lee 文章",
+    "titleWithPost": "cat3lee {title}",
+    "contentLabel": "文章內容",
+    "missingSlug": "缺少文章 slug。",
+    "loadError": "無法載入這篇文章。",
+    "translatedNotice": "此頁為翻譯",
+    "viewOriginal": "查看原文"
+  }
+}

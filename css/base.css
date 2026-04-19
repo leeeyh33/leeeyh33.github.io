@@ -74,7 +74,6 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -92,6 +91,35 @@ a {
 
 button {
   color: inherit;
+}
+
+.page-back-button {
+  position: fixed;
+  top: 16px;
+  left: 18px;
+  z-index: 20;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: rgba(95, 103, 114, 0.92);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.page-back-button:hover {
+  opacity: 0.7;
+  transform: translateX(-1px);
+}
+
+.page-back-button:focus-visible {
+  outline: 2px solid rgba(95, 103, 114, 0.22);
+  outline-offset: 6px;
+  border-radius: 8px;
 }
 
 
@@ -350,8 +378,8 @@ button {
 .footer-inner {
   max-width: 700px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 20px;
   align-items: center;
   text-align: center;
@@ -360,7 +388,7 @@ button {
 .footer-link {
   color: rgba(34, 34, 34, 0.82);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.96rem;
   line-height: 1.4;
   transition: opacity 0.18s ease;
 }
@@ -682,6 +710,14 @@ button {
   background: var(--glass-surface-strong);
 }
 
+.language-option[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
 .language-dial.open .language-dial-options {
   pointer-events: auto;
 }
@@ -710,6 +746,12 @@ button {
    ========================= */
 
 @media (max-width: 480px) {
+  .page-back-button {
+    top: 14px;
+    left: 14px;
+    font-size: 1.8rem;
+  }
+
   .main-content {
     padding-top: 72px;
     padding-bottom: 150px;
@@ -819,8 +861,8 @@ button {
   }
 
   .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .pill-menu {

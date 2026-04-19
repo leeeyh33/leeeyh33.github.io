@@ -6,7 +6,9 @@ const pillMenu = document.querySelector(".pill-menu");
 const pillMenuHeader = document.querySelector(".pill-menu-header");
 const languageDial = document.querySelector(".language-dial");
 const languageDialTrigger = document.querySelector(".language-dial-trigger");
+const languageOptions = document.querySelectorAll(".language-option");
 const pillMenuLinks = document.querySelectorAll(".pill-menu-item");
+const pageBackButton = document.querySelector(".page-back-button");
 let closeTimerId = null;
 let closeCleanupTimerId = null;
 
@@ -23,6 +25,7 @@ const readCssTimeMs = (element, variableName) => {
 
   return 0;
 };
+
 
 
 // =========================
@@ -171,5 +174,39 @@ if (languageDial && languageDialTrigger) {
 
     languageDial.setAttribute("aria-expanded", String(isOpen));
     languageDialTrigger.setAttribute("aria-expanded", String(isOpen));
+  });
+}
+
+if (languageOptions.length > 0) {
+  languageOptions.forEach((option) => {
+    option.addEventListener("click", async () => {
+      const nextLocale = option.dataset.lang;
+
+      if (!nextLocale || typeof window.setLocale !== "function") {
+        return;
+      }
+
+      await window.setLocale(nextLocale);
+
+      if (languageDial) {
+        languageDial.classList.remove("open");
+        languageDial.setAttribute("aria-expanded", "false");
+      }
+
+      if (languageDialTrigger) {
+        languageDialTrigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+}
+
+if (pageBackButton) {
+  pageBackButton.addEventListener("click", (event) => {
+    if (window.history.length <= 1) {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.back();
   });
 }

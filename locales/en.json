@@ -1,0 +1,75 @@
+{
+  "common": {
+    "siteTitle": "cat3lee",
+    "back": "Go back",
+    "loading": "Loading...",
+    "contactMe": "Contact me"
+  },
+  "nav": {
+    "home": "Home",
+    "lab": "Lab",
+    "notes": "Notes",
+    "contact": "Contact me"
+  },
+  "menu": {
+    "label": "Menu 🐱",
+    "siteMenu": "Site menu",
+    "mainNavigation": "Main navigation"
+  },
+  "footer": {
+    "navigation": "Footer navigation"
+  },
+  "language": {
+    "switcher": "Language switcher",
+    "openOptions": "Open language options",
+    "options": {
+      "en": "EN",
+      "zh": "中文",
+      "jp": "JP"
+    }
+  },
+  "home": {
+    "intro": {
+      "label": "Introduction",
+      "line1": "I'm cat3lee...",
+      "line2": "I make web apps...",
+      "line3": "I live a simple life..."
+    },
+    "sections": {
+      "lab": {
+        "title": "Lab",
+        "placeholder": "Project experiments and builds will go here."
+      },
+      "notes": {
+        "title": "Notes",
+        "placeholder": "Writing, thoughts, and small updates will go here."
+      }
+    }
+  },
+  "labPage": {
+    "title": "cat3lee Lab",
+    "eyebrow": "cat3lee",
+    "heading": "Lab",
+    "subtitle": "A dedicated space for experiments, prototypes, and builds."
+  },
+  "notesPage": {
+    "title": "cat3lee Notes",
+    "categories": "Notes categories",
+    "heading": "Notes",
+    "tabs": {
+      "all": "all",
+      "diary": "diary"
+    },
+    "publishedOn": "Published on {year}/{month}/{day}",
+    "coverAlt": "{title} cover"
+  },
+  "postPage": {
+    "title": "cat3lee Post",
+    "titleWithPost": "cat3lee {title}",
+    "contentLabel": "Post content",
+    "missingSlug": "Missing post slug.",
+    "loadError": "Unable to load this post.",
+    "translatedNotice": "This page is a translation.",
+    "viewOriginal": "View original"
+  }
+}

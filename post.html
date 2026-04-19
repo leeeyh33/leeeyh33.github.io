@@ -3,31 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="notesPage.title">cat3lee 筆記</title>
+  <title data-i18n="postPage.title">cat3lee 文章</title>
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="css/post.css">
 </head>
 <body>
-  <a class="page-back-button" href="index.html" data-i18n-aria-label="common.back" aria-label="返回">
+  <a class="page-back-button" href="notes.html" data-i18n-aria-label="common.back" aria-label="返回">
     ↶
   </a>
 
-  <main class="notes-page">
-    <header class="notes-header">
-      <div class="notes-brand">
-        <div class="notes-brand-mark" aria-hidden="true">🐱</div>
-        <span class="notes-brand-name">cat3lee</span>
-      </div>
-    </header>
-
-    <section class="notes-tabs" data-i18n-aria-label="notesPage.categories" aria-label="筆記分類">
-      <button class="notes-tab active" type="button" data-category="all" data-i18n="notesPage.tabs.all">全部</button>
-      <button class="notes-tab" type="button" data-category="diary" data-i18n="notesPage.tabs.diary">日記</button>
-    </section>
-
-    <section id="notes-grid" class="notes-grid" aria-labelledby="notes-page-title">
-      <h1 class="sr-only" id="notes-page-title" data-i18n="notesPage.heading">筆記</h1>
-    </section>
+  <main class="post-page">
+    <article id="post-content" class="post-content" data-i18n-aria-label="postPage.contentLabel" aria-label="文章內容">
+      <p data-i18n="common.loading">載入中...</p>
+    </article>
   </main>
 
   <footer class="site-footer" id="contact" data-i18n-aria-label="footer.navigation" aria-label="頁尾導航">
@@ -95,6 +83,7 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/post.js"></script>
 </body>
 </html>

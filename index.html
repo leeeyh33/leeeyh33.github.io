@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cat3lee</title>
-  <link rel="stylesheet" href="style.css">
+  <title data-i18n="common.siteTitle">cat3lee</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
   <!-- 頁面主內容 -->
   <main class="main-content">
     <!-- logo 區塊 -->
-    <section class="intro-section" id="home" aria-label="Introduction">
+    <section class="intro-section" id="home" data-i18n-aria-label="home.intro.label" aria-label="自我介紹">
       <div class="logo" aria-hidden="true">🐱</div>
 
       <!-- 自我介紹文字 -->
       <div class="intro-text">
-        <p>I'm cat3lee...</p>
-        <p>I make web apps...</p>
-        <p>I live a simple life...</p>
+        <p data-i18n="home.intro.line1">我是 cat3lee...</p>
+        <p data-i18n="home.intro.line2">我做網頁應用...</p>
+        <p data-i18n="home.intro.line3">我過著簡單的生活...</p>
       </div>
     </section>
 
     <!-- Lab 區塊 -->
     <section class="content-section" id="lab" aria-labelledby="lab-title">
-      <h2 class="section-title" id="lab-title">Lab</h2>
-      <div class="section-placeholder">Project experiments and builds will go here.</div>
+      <h2 class="section-title" id="lab-title" data-i18n="home.sections.lab.title">實驗室</h2>
+      <div class="section-placeholder" data-i18n="home.sections.lab.placeholder">專案實驗和作品會放在這裡。</div>
     </section>
 
     <!-- Notes 區塊 -->
     <section class="content-section" id="notes" aria-labelledby="notes-title">
-      <h2 class="section-title" id="notes-title">Notes</h2>
-      <div class="section-placeholder">Writing, thoughts, and small updates will go here.</div>
+      <h2 class="section-title" id="notes-title" data-i18n="home.sections.notes.title">筆記</h2>
+      <div class="section-placeholder" data-i18n="home.sections.notes.placeholder">文字、想法和小更新會放在這裡。</div>
     </section>
   </main>
 
   <!-- 主頁面 footer -->
-  <footer class="site-footer" id="contact" aria-label="Footer navigation">
+  <footer class="site-footer" id="contact" data-i18n-aria-label="footer.navigation" aria-label="頁尾導航">
     <div class="footer-inner">
-      <a href="index.html" class="footer-link">Home</a>
-      <a href="notes.html" class="footer-link">Notes</a>
-      <a href="#contact" class="footer-link">Follow me</a>
+      <a href="index.html" class="footer-link" data-i18n="nav.home">首頁</a>
+      <a href="notes.html" class="footer-link" data-i18n="nav.notes">筆記</a>
+      <a href="#contact" class="footer-link" data-i18n="nav.contact">聯絡我</a>
     </div>
   </footer>
 
@@ -47,7 +48,8 @@
   <div
     class="pill-menu"
     aria-expanded="false"
-    aria-label="Site menu"
+    data-i18n-aria-label="menu.siteMenu"
+    aria-label="站點選單"
   >
     <!-- 永遠看得到的 header -->
     <button
@@ -56,7 +58,7 @@
       aria-expanded="false"
       aria-controls="pill-menu-content"
     >
-      <span class="pill-menu-label">menu 🐱</span>
+      <span class="pill-menu-label" data-i18n="menu.label">選單 🐱</span>
     </button>
 
     <!-- 展開後才看得到的內容 -->
@@ -64,11 +66,11 @@
       id="pill-menu-content"
       class="pill-menu-content"
     >
-      <nav class="pill-menu-list" aria-label="Main navigation">
-        <a href="#home" class="pill-menu-item">🏠 home</a>
-        <a href="labs.html" class="pill-menu-item">👾 lab</a>
-        <a href="notes.html" class="pill-menu-item">🍃 notes</a>
-        <a href="#contact" class="pill-menu-item">🤠 contact me</a>
+      <nav class="pill-menu-list" data-i18n-aria-label="menu.mainNavigation" aria-label="主導航">
+        <a href="#home" class="pill-menu-item"><span aria-hidden="true">🏠</span> <span data-i18n="nav.home">首頁</span></a>
+        <a href="lab.html" class="pill-menu-item"><span aria-hidden="true">👾</span> <span data-i18n="nav.lab">實驗室</span></a>
+        <a href="notes.html" class="pill-menu-item"><span aria-hidden="true">🍃</span> <span data-i18n="nav.notes">筆記</span></a>
+        <a href="#contact" class="pill-menu-item"><span aria-hidden="true">🤠</span> <span data-i18n="nav.contact">聯絡我</span></a>
       </nav>
     </div>
   </div>
@@ -77,14 +79,16 @@
   <div
     class="language-dial"
     aria-expanded="false"
-    aria-label="Language switcher"
+    data-i18n-aria-label="language.switcher"
+    aria-label="語言切換"
   >
     <button
       class="language-dial-trigger"
       type="button"
       aria-expanded="false"
       aria-controls="language-dial-options"
-      aria-label="Open language options"
+      data-i18n-aria-label="language.openOptions"
+      aria-label="打開語言選項"
     >
       <span class="language-dial-plus" aria-hidden="true">+</span>
     </button>
@@ -93,13 +97,14 @@
       id="language-dial-options"
       class="language-dial-options"
     >
-      <button class="language-option" type="button">EN</button>
-      <button class="language-option" type="button">中</button>
-      <button class="language-option" type="button">JP</button>
+      <button class="language-option" type="button" data-lang="en" data-i18n="language.options.en">EN</button>
+      <button class="language-option" type="button" data-lang="zh" data-i18n="language.options.zh">中</button>
+      <button class="language-option" type="button" data-lang="ja" data-i18n="language.options.jp">JP</button>
     </div>
   </div>
 
   <!-- JavaScript 放在 body 最後 -->
-  <script src="script.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
