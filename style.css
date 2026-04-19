@@ -1,150 +1,844 @@
-* {
+/* =========================
+   1. 全局基礎設定
+   ========================= */
+
+:root {
+  /* 外層膠囊 / 面板整體展開速度 */
+  --menu-panel-expand-duration: 0.24s;
+
+  /* 外層膠囊 / 面板回彈動畫時間 */
+  --menu-open-bounce-duration: 0.34s;
+
+  /* 收起後膠囊回彈動畫時間 */
+  --menu-close-bounce-duration: 0.20s;
+
+  /* 整體展開動畫的節奏 */
+  --menu-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* 內容要延遲多久才開始出現 */
+  --menu-content-show-delay: 0.12s;
+
+  /* 內容淡入淡出的時間 */
+  --menu-content-fade-duration: 0.08s;
+
+  /* 收起時先讓文字消失，再開始收面板的等待時間 */
+  --menu-close-delay: 0.06s;
+
+  /* 收合時膠囊寬度 */
+  --pill-width: 120px;
+
+  /* 收合時膠囊高度 */
+  --pill-height: 52px;
+
+  /* 展開後面板寬度 */
+  --panel-width: 230px;
+
+  /* 展開後面板高度 */
+  --panel-height: 260px;
+
+  /* 收合時膠囊圓角 */
+  --pill-radius: 26px;
+
+  /* 展開後面板圓角 */
+  --panel-radius: 26px;
+
+  /* 高級霧面玻璃主表面 */
+  --glass-surface: rgba(88, 88, 88, 0.68);
+
+  /* 深一點的霧面玻璃表面 */
+  --glass-surface-strong: rgba(74, 74, 74, 0.76);
+
+  /* 次級玻璃表面 */
+  --glass-surface-subtle: rgba(66, 66, 66, 0.58);
+
+  /* 低對比玻璃邊框 */
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  /* 柔和玻璃陰影 */
+  --glass-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.14),
+    0 2px 10px rgba(0, 0, 0, 0.06);
+
+  /* 輕微內部高光 */
+  --glass-inner-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+
+  /* 玻璃文字顏色 */
+  --glass-text: rgba(255, 255, 255, 0.94);
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  background: #f3f3f3;
-  color: #333;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background: #f5f5f5;
+  color: #222;
 }
 
-.navbar {
-  height: 86px;
-  background: #ffffff;
+button,
+a {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+
+/* =========================
+   2. 主內容區
+   ========================= */
+
+.main-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 100px 20px 160px;
+  text-align: center;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  width: 100%;
+}
+
+.intro-text p {
+  margin: 0 0 16px;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.intro-text p:last-child {
+  margin-bottom: 0;
+}
+
+.content-section {
+  margin-top: 88px;
+  text-align: left;
+}
+
+.section-title {
+  margin: 0 0 20px;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: rgba(34, 34, 34, 0.94);
+}
+
+.section-placeholder {
+  padding: 28px 24px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(34, 34, 34, 0.66);
+  line-height: 1.7;
+}
+
+.page-main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 120px 20px 180px;
+}
+
+.page-hero {
+  text-align: left;
+}
+
+.page-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(34, 34, 34, 0.5);
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 0.96;
+  color: rgba(34, 34, 34, 0.94);
+}
+
+.page-subtitle {
+  max-width: 520px;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(34, 34, 34, 0.62);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.notes-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 56px 180px;
+}
+
+.notes-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+  gap: 24px;
 }
 
-.brand {
-  font-size: 28px;
-  font-weight: 600;
-}
-
-.nav-links {
-  display: flex;
-  gap: 34px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #777;
-  font-size: 28px;
-  font-weight: 500;
-}
-
-.nav-links a.active {
-  color: #222;
-  font-weight: 700;
-}
-
-.theme-btn {
-  border: none;
-  background: transparent;
-  font-size: 34px;
-  cursor: pointer;
-  color: #777;
-}
-
-.container {
-  max-width: 1500px;
-  margin: 90px auto;
-  padding: 0 40px;
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 90px;
-  align-items: start;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
-  border-radius: 4px;
-}
-
-.left-card {
-  padding: 36px 34px 42px;
-}
-
-.cat-image {
-  width: 100%;
-  max-width: 250px;
-  display: block;
-  margin: 0 auto 28px;
-}
-
-.left-text {
-  font-size: 34px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.right-panel {
-  padding: 34px 40px 40px;
-}
-
-.right-panel h2 {
-  margin: 0 0 22px;
-  font-size: 34px;
-}
-
-.item-card {
-  min-height: 150px;
-  background: #fff;
-  border: 1px solid #e3e3e3;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
-  margin-bottom: 16px;
+.notes-brand {
   display: flex;
   align-items: center;
-  padding: 0 34px;
-  font-size: 30px;
+  gap: 14px;
 }
 
-.icon {
-  width: 56px;
+.notes-brand-mark {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+
+.notes-brand-name {
+  font-size: 1rem;
+  line-height: 1;
+  color: rgba(34, 34, 34, 0.94);
+}
+
+.notes-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notes-icon-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: rgba(34, 34, 34, 0.88);
+}
+
+.notes-tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 24px;
+  margin-top: 40px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.08);
+}
+
+.notes-tab {
+  border: none;
+  background: transparent;
+  padding: 0 0 8px;
+  font-size: 0.9rem;
+  line-height: 1;
+  color: rgba(75, 88, 98, 0.68);
+}
+
+.notes-tab.active {
+  color: rgba(34, 34, 34, 0.94);
+  box-shadow: inset 0 -3px 0 rgba(34, 34, 34, 0.9);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 44px 26px;
+  margin-top: 44px;
+}
+
+.note-card {
+  min-width: 0;
+}
+
+.note-card-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 172px;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(231, 240, 251, 0.92);
+}
+
+.note-paper {
+  width: 114px;
+  aspect-ratio: 3 / 4;
+  height: auto;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow:
+    0 10px 22px rgba(15, 23, 42, 0.10),
+    0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.note-paper-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.note-paper-text {
+  background:
+    linear-gradient(#ffffff, #ffffff),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 16px,
+      rgba(90, 90, 90, 0.08) 16px,
+      rgba(90, 90, 90, 0.08) 18px
+    );
+  background-blend-mode: normal;
+}
+
+.note-paper-thin {
+  width: 114px;
+}
+
+.note-card-title {
+  margin: 16px 0 6px;
+  font-size: clamp(0.98rem, 1.3vw, 1.15rem);
+  line-height: 1.2;
+  color: rgba(34, 34, 34, 0.94);
+}
+
+.note-card-meta {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: rgba(98, 106, 116, 0.76);
+}
+
+
+/* =========================
+   3. 主頁面 Footer
+   ========================= */
+
+.site-footer {
+  margin-top: 80px;
+  padding: 40px 20px 140px;
+}
+
+.footer-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
   text-align: center;
-  margin-right: 18px;
 }
 
-.label {
-  font-size: 31px;
-  font-weight: 600;
-  text-decoration: underline;
-  margin-right: 10px;
+.footer-link {
+  color: rgba(34, 34, 34, 0.82);
+  text-decoration: none;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: opacity 0.18s ease;
 }
 
-.desc {
-  font-size: 30px;
+.footer-link:hover {
+  opacity: 0.6;
 }
 
-@media (max-width: 1000px) {
-  .container {
+
+/* =========================
+   4. 底部膠囊 Menu
+   ========================= */
+
+.pill-menu {
+  --panel-side-gap: 10px;
+  --panel-content-side-padding: 20px;
+  --header-open-radius: 28px;
+  --pill-glass-border: var(--glass-border);
+  --pill-glass-shadow: var(--glass-shadow), var(--glass-inner-highlight);
+
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column-reverse;
+
+  width: var(--pill-width);
+  height: var(--pill-height);
+  background: var(--glass-surface);
+  color: var(--glass-text);
+  border: 1px solid var(--pill-glass-border);
+  border-radius: var(--pill-radius);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  box-shadow: var(--pill-glass-shadow);
+  overflow: hidden;
+  transform-origin: center bottom;
+  will-change: transform;
+
+  z-index: 1000;
+  transition:
+    width var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    height var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    border-radius var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    border-color var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    box-shadow var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    background-color var(--menu-panel-expand-duration) var(--menu-motion-ease);
+}
+
+.pill-menu.open {
+  width: min(var(--panel-width), calc(100vw - 50px));
+  height: var(--panel-height);
+  background: var(--glass-surface-strong);
+  color: var(--glass-text);
+  border-color: var(--glass-border);
+  border-radius: var(--panel-radius);
+  box-shadow:
+    0 20px 48px rgba(15, 23, 42, 0.12),
+    0 6px 18px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  animation: menu-open-bounce var(--menu-open-bounce-duration) var(--menu-motion-ease);
+}
+
+.pill-menu.closing {
+  animation:
+    menu-close-bounce
+    var(--menu-close-bounce-duration)
+    var(--menu-motion-ease)
+    calc(var(--menu-close-delay) + var(--menu-panel-expand-duration));
+}
+
+.pill-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.08) 24%,
+      rgba(255, 255, 255, 0.02) 42%,
+      rgba(255, 255, 255, 0) 64%
+    );
+  pointer-events: none;
+  opacity: 0.56;
+  transition: opacity var(--menu-panel-expand-duration) var(--menu-motion-ease);
+}
+
+.pill-menu.open::before {
+  opacity: 0.8;
+}
+
+.pill-menu-header {
+  flex-shrink: 0;
+  width: 100%;
+  height: var(--pill-height);
+  padding: 0 20px;
+  border: none;
+  margin: 0;
+  background: transparent;
+  border-radius: var(--pill-radius);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition:
+    background-color var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    border-color var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    border-radius var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    width var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    margin var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    transform var(--menu-panel-expand-duration) var(--menu-motion-ease),
+    box-shadow var(--menu-panel-expand-duration) var(--menu-motion-ease);
+}
+
+.pill-menu.open .pill-menu-header {
+  width: calc(100% - (var(--panel-side-gap) * 2));
+  margin: 0 var(--panel-side-gap) var(--panel-side-gap);
+  background: var(--glass-surface-subtle);
+  border: 1px solid var(--pill-glass-border);
+  border-radius: var(--header-open-radius);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  transform: translateY(2px);
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.pill-menu-header:focus-visible {
+  outline: 3px solid rgba(160, 174, 192, 0.28);
+  outline-offset: -6px;
+}
+
+.pill-menu-label {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.pill-menu-content {
+  flex: 1;
+  height: calc(100% - var(--pill-height));
+  padding: 24px 24px 28px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0);
+  pointer-events: none;
+  transition:
+    opacity var(--menu-content-fade-duration) linear 0s,
+    transform var(--menu-content-fade-duration) linear 0s,
+    visibility 0s linear var(--menu-content-fade-duration);
+}
+
+.pill-menu.open .pill-menu-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition:
+    opacity var(--menu-content-fade-duration) linear var(--menu-content-show-delay),
+    transform var(--menu-content-fade-duration) linear var(--menu-content-show-delay),
+    visibility 0s linear 0s;
+}
+
+.pill-menu.closing .pill-menu-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--menu-content-fade-duration) linear 0s,
+    visibility 0s linear var(--menu-content-fade-duration);
+}
+
+.pill-menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.pill-menu-item {
+  display: block;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.96);
+  text-decoration: none;
+  opacity: 0.88;
+  line-height: 1.2;
+}
+
+.pill-menu-item:hover {
+  opacity: 1;
+}
+
+.pill-menu-item:last-child {
+  border-bottom: none;
+}
+
+@keyframes menu-open-bounce {
+  0% {
+    transform: translateX(-50%) scale(0.96);
+  }
+
+  62% {
+    transform: translateX(-50%) scale(1.02);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes menu-close-bounce {
+  0% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  60% {
+    transform: translateX(-50%) scale(0.975);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* =========================
+   5. 右側語言圓盤
+   ========================= */
+
+.language-dial {
+  --dial-size: 52px;
+  --dial-option-size: 42px;
+  --dial-bg: var(--glass-surface);
+  --dial-bg-hover: var(--glass-surface-strong);
+  --dial-option-bg: var(--glass-surface-subtle);
+  --dial-option-border: var(--glass-border);
+
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 1001;
+}
+
+.language-dial-trigger {
+  position: relative;
+  z-index: 2;
+  width: var(--dial-size);
+  height: var(--dial-size);
+  border: none;
+  border-radius: 50%;
+  background: var(--dial-bg);
+  color: var(--glass-text);
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(118%);
+  -webkit-backdrop-filter: blur(16px) saturate(118%);
+  cursor: pointer;
+  transition:
+    transform 0.22s var(--menu-motion-ease),
+    background-color 0.22s var(--menu-motion-ease),
+    box-shadow 0.22s var(--menu-motion-ease);
+}
+
+.language-dial-trigger:hover {
+  background: var(--dial-bg-hover);
+}
+
+.language-dial-trigger:focus-visible {
+  outline: 3px solid rgba(160, 174, 192, 0.28);
+  outline-offset: 4px;
+}
+
+.language-dial.open .language-dial-trigger {
+  transform: rotate(45deg) scale(0.96);
+}
+
+.language-dial-plus {
+  display: inline-block;
+  font-size: 2.1rem;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+.language-dial-options {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.language-option {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: var(--dial-option-size);
+  height: var(--dial-option-size);
+  border: 1px solid var(--dial-option-border);
+  border-radius: 50%;
+  background: var(--dial-option-bg);
+  color: var(--glass-text);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  opacity: 0;
+  transform: translate(0, 0) scale(0.4);
+  transition:
+    transform 0.22s var(--menu-motion-ease),
+    opacity 0.18s linear,
+    background-color 0.18s ease;
+}
+
+.language-option:hover {
+  background: var(--glass-surface-strong);
+}
+
+.language-dial.open .language-dial-options {
+  pointer-events: auto;
+}
+
+.language-dial.open .language-option {
+  opacity: 1;
+}
+
+.language-dial.open .language-option:nth-child(1) {
+  transform: translate(0, -72px) scale(1);
+  transition-delay: 0.02s;
+}
+
+.language-dial.open .language-option:nth-child(2) {
+  transform: translate(-56px, -56px) scale(1);
+  transition-delay: 0.05s;
+}
+
+.language-dial.open .language-option:nth-child(3) {
+  transform: translate(-72px, 0) scale(1);
+  transition-delay: 0.08s;
+}
+
+/* =========================
+   6. 手機版微調
+   ========================= */
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 72px;
+    padding-bottom: 150px;
+  }
+
+  .intro-text p {
+    font-size: 1rem;
+  }
+
+  .content-section {
+    margin-top: 64px;
+  }
+
+  .notes-page {
+    padding: 28px 20px 160px;
+  }
+
+  .notes-header {
+    gap: 16px;
+  }
+
+  .notes-brand {
+    gap: 12px;
+  }
+
+  .notes-brand-mark {
+    font-size: 2rem;
+  }
+
+  .notes-brand-name {
+    font-size: 1rem;
+  }
+
+  .notes-header-actions {
+    gap: 12px;
+  }
+
+  .notes-icon-button {
+    font-size: 1.35rem;
+  }
+
+  .notes-tabs {
+    gap: 22px;
+    margin-top: 44px;
+    overflow-x: auto;
+    padding-bottom: 14px;
+  }
+
+  .notes-tab {
+    font-size: 0.95rem;
+    padding-bottom: 8px;
+    white-space: nowrap;
+  }
+
+  .notes-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 52px;
+    margin-top: 56px;
   }
 
-  .nav-links {
-    gap: 18px;
+  .note-card-preview {
+    min-height: 180px;
+    padding: 18px;
+    border-radius: 24px;
   }
 
-  .nav-links a,
-  .brand {
-    font-size: 20px;
+  .note-paper {
+    width: 102px;
   }
 
-  .theme-btn {
-    font-size: 24px;
+  .note-paper-thin {
+    width: 102px;
   }
 
-  .left-text,
-  .right-panel h2,
-  .item-card,
-  .label,
-  .desc {
-    font-size: 22px;
+  .note-card-title {
+    margin-top: 14px;
+    font-size: 1.35rem;
+  }
+
+  .note-card-meta {
+    font-size: 0.88rem;
+  }
+
+  .page-main {
+    padding: 88px 20px 160px;
+  }
+
+  .page-title {
+    font-size: 2.65rem;
+  }
+
+  .page-subtitle {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .section-placeholder {
+    padding: 22px 18px;
+  }
+
+  .site-footer {
+    margin-top: 56px;
+    padding: 32px 20px 140px;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .pill-menu {
+    width: calc(var(--pill-width) + 22px);
+    bottom: 24px;
+  }
+
+  .pill-menu.open {
+    width: calc(100vw - 24px);
+    height: 244px;
+  }
+
+  .pill-menu-content {
+    padding: 20px 22px 24px;
+  }
+
+  .language-dial {
+    right: 24px;
+    bottom: 24px;
   }
 }

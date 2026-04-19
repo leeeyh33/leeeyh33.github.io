@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cat3lee Labs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-main">
+    <section class="page-hero" aria-labelledby="labs-page-title">
+      <p class="page-eyebrow">cat3lee</p>
+      <h1 class="page-title" id="labs-page-title">Labs</h1>
+      <p class="page-subtitle">A dedicated space for experiments, prototypes, and builds.</p>
+    </section>
+  </main>
+
+  <div
+    class="pill-menu"
+    aria-expanded="false"
+    aria-label="Site menu"
+  >
+    <button
+      class="pill-menu-header"
+      type="button"
+      aria-expanded="false"
+      aria-controls="pill-menu-content"
+    >
+      <span class="pill-menu-label">menu 🐱</span>
+    </button>
+
+    <div
+      id="pill-menu-content"
+      class="pill-menu-content"
+    >
+      <nav class="pill-menu-list" aria-label="Main navigation">
+        <a href="index.html" class="pill-menu-item">🏠 home</a>
+        <a href="labs.html" class="pill-menu-item">👾 lab</a>
+        <a href="notes.html" class="pill-menu-item">🍃 notes</a>
+        <a href="index.html#contact" class="pill-menu-item">🤠 contact me</a>
+      </nav>
+    </div>
+  </div>
+
+  <div
+    class="language-dial"
+    aria-expanded="false"
+    aria-label="Language switcher"
+  >
+    <button
+      class="language-dial-trigger"
+      type="button"
+      aria-expanded="false"
+      aria-controls="language-dial-options"
+      aria-label="Open language options"
+    >
+      <span class="language-dial-plus" aria-hidden="true">+</span>
+    </button>
+
+    <div
+      id="language-dial-options"
+      class="language-dial-options"
+    >
+      <button class="language-option" type="button">EN</button>
+      <button class="language-option" type="button">中</button>
+      <button class="language-option" type="button">JP</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
