@@ -51,7 +51,9 @@ window.applyTranslations = (root = document) => {
 };
 
 const loadLocaleMessages = async (locale) => {
-  const response = await fetch(`./locales/${locale}.json`);
+  const response = await fetch(`./locales/${locale}.json?v=20260419`, {
+    cache: "no-store",
+  });
 
   if (!response.ok) {
     throw new Error("Unable to load locale file.");
