@@ -33,7 +33,12 @@
       "label": "About",
       "line1": "Hi, I’m Lee. I’m currently studying computer science and am particularly interested in computer graphics and 3D generation (such as 3DGS and spatial representations). I’m also exploring the possibilities of combining AI with 3D.",
       "line2": "I’m also very interested in avionics and flight control systems. I’ve been exposed to flight simulation since I was young, and I still enjoy flying from time to time. Outside of coding, I like playing the piano, and my favorite composer is Rachmaninoff.",
-      "line3": "Although my nickname is cat3lee, I’m actually more of a dog person. My favorite is the Maltichon (Maltese × Bichon Frise). This site is where I document what I’m building, some thoughts, and bits of everyday life."
+      "line3": "Although my nickname is cat3lee, I’m actually more of a dog person. My favorite is the Maltichon (Maltese × Bichon Frise). This site is where I document what I’m building, some thoughts, and bits of everyday life.",
+      "readInPrefix": "Read in"
+    },
+    "tabs": {
+      "all": "All",
+      "timeline": "Timeline"
     },
     "sections": {
       "lab": {
