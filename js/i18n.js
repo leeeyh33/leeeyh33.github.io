@@ -34,15 +34,27 @@ window.getLocale = () => currentLocale;
 
 window.applyTranslations = (root = document) => {
   root.querySelectorAll("[data-i18n]").forEach((element) => {
-    element.textContent = window.t(element.dataset.i18n);
+    const translated = window.t(element.dataset.i18n);
+
+    if (translated !== element.dataset.i18n) {
+      element.textContent = translated;
+    }
   });
 
   root.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
-    element.setAttribute("aria-label", window.t(element.dataset.i18nAriaLabel));
+    const translated = window.t(element.dataset.i18nAriaLabel);
+
+    if (translated !== element.dataset.i18nAriaLabel) {
+      element.setAttribute("aria-label", translated);
+    }
   });
 
   root.querySelectorAll("[data-i18n-title]").forEach((element) => {
-    element.setAttribute("title", window.t(element.dataset.i18nTitle));
+    const translated = window.t(element.dataset.i18nTitle);
+
+    if (translated !== element.dataset.i18nTitle) {
+      element.setAttribute("title", translated);
+    }
   });
 
   root.querySelectorAll(".language-option[data-lang]").forEach((element) => {

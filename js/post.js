@@ -2,6 +2,24 @@ const postContent = document.querySelector("#post-content");
 const i18nReady = window.i18nReady || Promise.resolve();
 let isPostLoading = false;
 const getLocale = () => (typeof window.getLocale === "function" ? window.getLocale() : "zh");
+const getContentLocaleFromParams = () => {
+  const params = new URLSearchParams(window.location.search);
+  const contentLocale = params.get("contentLocale");
+
+  return contentLocale || "";
+};
+
+const updateContentLocaleParam = (contentLocale) => {
+  const url = new URL(window.location.href);
+
+  if (contentLocale) {
+    url.searchParams.set("contentLocale", contentLocale);
+  } else {
+    url.searchParams.delete("contentLocale");
+  }
+
+  window.history.replaceState({}, "", url);
+};
 
 const formatPostDate = (dateString) => {
   const date = new Date(dateString);
@@ -107,10 +125,13 @@ const loadPost = async () => {
     }
 
     const localizedTitle = getLocalizedTitle(postMeta);
+    const originalLocale = postMeta.originalLocale || "ja";
+    const requestedContentLocale = getContentLocaleFromParams();
+    const contentLocale = requestedContentLocale || getLocale();
     const { markdown, isTranslated } = await fetchMarkdownForLocale(
       slug,
-      getLocale(),
-      postMeta.originalLocale || "ja",
+      contentLocale,
+      originalLocale,
     );
     const html = window.marked.parse(preserveMarkdownBlankLines(markdown));
 
@@ -130,7 +151,7 @@ const loadPost = async () => {
               <a
                 href="./post.html?slug=${slug}"
                 class="post-meta-link"
-                data-original-locale="${postMeta.originalLocale || "ja"}"
+                data-original-locale="${originalLocale}"
               >${window.t("postPage.viewOriginal")}</a>
             </p>
           ` : ""}
@@ -165,11 +186,12 @@ if (postContent) {
   postContent.addEventListener("click", async (event) => {
     const originalLink = event.target.closest(".post-meta-link[data-original-locale]");
 
-    if (!originalLink || typeof window.setLocale !== "function") {
+    if (!originalLink) {
       return;
     }
 
     event.preventDefault();
-    await window.setLocale(originalLink.dataset.originalLocale);
+    updateContentLocaleParam(originalLink.dataset.originalLocale);
+    await loadPost();
   });
 }
